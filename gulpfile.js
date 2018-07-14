@@ -7,8 +7,7 @@ var watch = require('gulp-watch');
 
 var styleFiles = [
   'node_modules/bootstrap/dist/css/bootstrap.css',
-  'src/style/main.scss',
-
+  'src/style/**/*.scss',
 ];
 
 var scriptFiles = [
@@ -18,21 +17,21 @@ var scriptFiles = [
 ];
 
 var pathsToClean = [
-  './static/css',
-  './static/js',
+  'static/css',
+  'static/js',
 ];
 
 var templateFiles = [
-  './src/templates/header.html',
-  './src/templates/mainScreen.html',
-  './src/templates/footer.html',
+  'src/templates/header.html',
+  'src/templates/mainScreen.html',
+  'src/templates/footer.html',
 ];
 
 gulp.task('styles', function () {
   return gulp.src(styleFiles)
     .pipe(sass())
     .pipe(concat('main.css'))
-    .pipe(gulp.dest('./static/css'));
+    .pipe(gulp.dest('static/css'));
 });
 
 gulp.task('scripts', function() {
@@ -42,14 +41,14 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('images', function(){
-	return gulp.src('./src/images/**.*')
-	.pipe(gulp.dest('./static/images'));
+	return gulp.src('src/images/**.*')
+	.pipe(gulp.dest('static/images'));
 });
 
 gulp.task('templates', function(){
 	return gulp.src(templateFiles)
   .pipe(concat('index.html', {map: false}))
-	.pipe(gulp.dest('./'));
+	.pipe(gulp.dest('./static'));
 });
 
 gulp.task('clean', function () {
