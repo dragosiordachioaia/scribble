@@ -5,8 +5,10 @@ var clean = require('gulp-clean');
 var gulp = require('gulp');
 var watch = require('gulp-watch');
 
+
 var styleFiles = [
   'node_modules/bootstrap/dist/css/bootstrap.css',
+  'src/style/reset.scss',
   'src/style/**/*.scss',
 ];
 
@@ -23,7 +25,9 @@ var pathsToClean = [
 
 var templateFiles = [
   'src/templates/header.html',
+  'src/templates/navbar.html',
   'src/templates/mainScreen.html',
+  'src/templates/notes.html',
   'src/templates/footer.html',
 ];
 
